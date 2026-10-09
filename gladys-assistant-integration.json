@@ -1,0 +1,44 @@
+{
+  "manifest_version": 1,
+  "type": "device",
+  "name": "Heatzy Pilote",
+  "description": {
+    "en": "Control your Heatzy Pilote heaters from Gladys: modes, holiday, boost and lock.",
+    "fr": "Pilotez vos Heatzy Pilote depuis Gladys : modes, vacances, boost et verrouillage."
+  },
+  "version": "1.0.0",
+  "docker_image": "ghcr.io/jeanfrizzy/gladys-heatzy-pilote:1.0.0",
+  "gladys_version": ">=4.86.0",
+  "categories": ["climate"],
+  "transports": ["cloud"],
+  "config_schema": [
+    {
+      "key": "username",
+      "type": "string",
+      "label": { "en": "Heatzy e-mail", "fr": "E-mail Heatzy" },
+      "required": true
+    },
+    {
+      "key": "password",
+      "type": "secret",
+      "label": { "en": "Heatzy password", "fr": "Mot de passe Heatzy" },
+      "required": true
+    },
+    {
+      "key": "vacation_days",
+      "type": "number",
+      "label": { "en": "Holiday mode duration (days)", "fr": "Durée du mode vacances (jours)" },
+      "default": 7,
+      "min": 1,
+      "max": 255
+    },
+    {
+      "key": "boost_minutes",
+      "type": "number",
+      "label": { "en": "Boost duration (minutes)", "fr": "Durée du boost (minutes)" },
+      "default": 60,
+      "min": 1,
+      "max": 255
+    }
+  ]
+}
